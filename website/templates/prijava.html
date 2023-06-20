@@ -1,0 +1,19 @@
+{% extends "osnova.html" %} 
+{% block title %} Prijava - Zajem vremenskih podatkov {% endblock %}
+{% block prijava_aktivna %} class="nav_active" {% endblock %}
+
+{% block telo %}
+<form action="#" method="post">
+    <h1>Prijava</h1>
+    <div class="obrazec_vrstica">
+        <input type="email" name="elektronski_naslov" placeholder="Elektronski naslov ..." />
+    </div>
+    <div class="obrazec_vrstica">
+        <input type="password" name="geslo" placeholder="Geslo ..." />
+    </div>
+    <br>
+    <div class="obrazec_vrstica">
+        <button type="submit" name="gumb_prijava"> Prijava </button>
+    </div>
+</form>
+{% endblock %}

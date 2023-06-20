@@ -1,0 +1,123 @@
+/* oranzna: #F15922 */
+/* crna: #0F0F0F */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    flex: 0;
+    background-color: #0F0F0F;
+}
+
+ul, li, a {
+    height: 100%;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li a {
+    display: block;
+    padding: 1em;
+    color: #fff;
+    text-decoration: none;
+    font-size: 130%;
+    font-weight: 400;
+}
+
+.nav_active {
+    background-color: #F15922;
+}
+
+.telo {
+    flex: 14;
+}
+
+footer {
+    flex: 0;
+    padding: 1em;
+    background-color: #F15922;
+    text-align: center;
+    font-size: 130%;
+}
+
+a {
+    color: #000;
+    font-weight: bold;
+}
+
+.telo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    min-width: 200px;
+    width: 30%;
+}
+
+.obrazec_vrstica {
+    margin-bottom: 0.2em;
+}
+
+form h1 {
+    margin-bottom: 1em;
+    color: #424242;
+    font-size: 300%;
+}
+
+input {
+    padding: 1.2em;
+    font-size: 140%;
+    width: 100%;
+    border-radius: 0.5em;
+    border: 0.5px solid #aaaaaa
+}
+
+button {
+    font-size: 140%;
+    margin-top: 1em;
+    width: 100%;
+    padding: 0.8em;
+    border-radius: 0.5em;
+    border: 0.5px solid #000;
+    background-color: #0F0F0F;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #424242;
+    cursor: pointer;
+}

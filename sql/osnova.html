@@ -16,10 +16,10 @@
     <main>
         <nav>
             <ul>
-                <li><a href="/prijava" {% block prijava_aktivna %} {% endblock %}>Prijava</a></li>
+                <li><a href="/prijava" {% block prijava_aktivna %} {% endblock %} class="nav_active">Prijava</a></li>
                 <li><a href="/registracija" {% block registracija_aktivna %} {% endblock %} >Registracija</a></li>
-                <li><a href="/odjava" {% block odjava_aktivna %} {% endblock %} >Odjava</a></li>
-                <li><a href="/" {% block domov_aktivna %} {% endblock %} >Domov</a></li>
+                <li><a href="/odjava" {% block registracija_aktivna %} {% endblock %} >Odjava</a></li>
+                <li><a href="/" {% block kontakt_aktivna %} {% endblock %} >Domov</a></li>
             </ul>
         </nav>
         <div class="telo">
