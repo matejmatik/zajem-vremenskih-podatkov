@@ -6,7 +6,6 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/prijava', methods=['GET', 'POST'])
 def login():
-    podatki = request.form
     return render_template("prijava.html")
 
 
@@ -25,13 +24,15 @@ def sign_up():
         geslo2 = request.form.get('geslo2')
 
         if len(elektronski_naslov) < 4:
-            flash('Elektronski naslov mora biti daljši od 4 znakov.', category='error')
+            flash('Elektronski naslov mora biti daljši od 4 znakov!', category='error')
         elif len(ime) < 3:
-            flash('Ime mora biti daljše od 2 znakov.', category='error')
+            flash('Ime mora biti daljše od 2 znakov!', category='error')
+        elif len(priimek) == 0:
+            flash('Vnesti moraš priimek!', category='error')
         elif geslo1 != geslo2:
             flash('Gesli se ne ujemata!', category='error')
         else:
-            flash('Račun je bil ustvarjen!', category='success')
+            flash('Račun je bil ustvarjen.', category='success')
             # Dodamo v podatkovno bazo
     
     return render_template("registracija.html")

@@ -8,7 +8,5 @@ def main():
     for ime, url in pridobi_vremenske_postaje().items():
         print(zajem_vremenskih_podatkov(url))
 
-
-
 if __name__ == '__main__':
     main()

@@ -18,7 +18,7 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import Uporabnik
+    #from .models import Uporabnik, VremenskaPostaja, IzbranaPostaja, VremenskiPodatki
 
     create_database(app)
 
@@ -26,6 +26,7 @@ def create_app():
 
 
 def create_database(app):
-    if not path('website/' + PODATKOVNA_BAZA):
-        db.create_all(app=app)
-        print('Podatkovna baza je ustvarjena.')
+    if not path.exists('website/' + PODATKOVNA_BAZA):
+        with app.app_context():
+            db.create_all()
+            print('Podatkovna baza je ustvarjena.')
