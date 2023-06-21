@@ -4,7 +4,7 @@ import requests
 
 
 def pridobi_postaje_xml():
-    """Funkcija, ki iz arso pridobi vse vremenske postaje.
+    """Funkcija, ki iz ARSO pridobi vse vremenske postaje.
 
     Returns:
         slovar: slovar postaj, kjer kljuc ime postaje, vrednost pa url xml-ja

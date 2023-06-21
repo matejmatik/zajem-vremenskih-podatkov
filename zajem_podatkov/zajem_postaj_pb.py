@@ -5,6 +5,9 @@ import sqlite3
 PODATKOVNA_BAZA = "vremenski_podatki_ai.db"
 
 def zajem_postaj():
+    """Funkcija, ki shrani postaje in url-je v PB.
+    """
+
     pot = path.join(getcwd(), 'instance', PODATKOVNA_BAZA)
     try:
         povezava = sqlite3.connect(pot)

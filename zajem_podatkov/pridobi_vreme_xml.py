@@ -1,17 +1,39 @@
 from bs4 import BeautifulSoup
-import pandas as pd
-# import numpy as np
 import requests
+
+def uredi_podatek (meritev, znacka, tip="float"):
+    """Funkcija, ki uredi podatek iz xml-ja
+
+    Args:
+        meritev (soup): vremenska meritev
+        znacka (str): xml znacka
+        tip (str, optional): tip podatka/vrednosti
+
+    Returns:
+        _type_: vrne podatek v ustreznem tipu
+    """
+    
+    podatek = meritev.find(znacka)
+    if podatek is not None:
+        podatek = podatek.get_text()
+        if podatek != "":
+            if tip == "float":
+                return float(podatek)
+            elif tip == "int":
+                return int(podatek)
+            elif tip == "str":
+                return podatek
+    return "NULL"     
 
 
 def pridobi_vreme_xml (url):
     """Funkcija, ki iz podanega url naslova pridobi vremenske podatke.
 
     Args:
-        url (string): url naslov spletne strani z vremenskimi podatki
+        url (str): url naslov spletne strani z vremenskimi podatki
 
     Returns:
-        panda_okvir: vrne panda okvir vremenskih podatkov
+        slovar: slovar vremenskih podatkov
     """
 
     # Pridobivanje podatkov s spletne strani
@@ -29,34 +51,25 @@ def pridobi_vreme_xml (url):
         cas = datum_cas_meritve[1]
 
         # Pridobivanje vremenskih podatkov
-        temperatura = meritev.find('t')
-        if temperatura is not None:
-            temperatura = temperatura.get_text()
-            if temperatura != "":
-                temperatura = float(temperatura)
-
-        relativna_vlaznost = meritev.find('rh')
-        if relativna_vlaznost is not None:
-            relativna_vlaznost = relativna_vlaznost.get_text()
-            if relativna_vlaznost != "":
-                relativna_vlaznost = float(relativna_vlaznost)
-
-        # smer_vetra = meritev.find('dd_shortText').get_text()
-        # hitrost_vetra = float(meritev.find('ff_val_kmh').get_text())
-        # padavine = float(meritev.find('rr_val').get_text())
-        # vsota_padavin = float(meritev.find('tp_12h_acc').get_text())
-
-        # Shranjevanje v panda "okvir"
-        zapis = pd.DataFrame(
-            {
-            "kraj": [kraj],
-            "datum": [datum],
-            "cas": [cas],
-            "temperatura": [temperatura],
-            "relativna_vlaznost": [relativna_vlaznost]
-            }
-            )
+        temperatura = uredi_podatek(meritev, "t", "float")
+        relativna_vlaznost = uredi_podatek(meritev, 'rh', "float")
+        smer_vetra = uredi_podatek(meritev,'dd_shortText', "str")
+        hitrost_vetra = uredi_podatek(meritev,'ff_val_kmh', "float")
+        padavine = uredi_podatek(meritev,'rr_val', "float")
+        vsota_padavin = uredi_podatek(meritev,'tp_12h_acc', "float")
         
-        return zapis
+        # Shranjevanje v panda "okvir"
+        return {
+            "kraj": kraj,
+            "datum": datum,
+            "cas": cas,
+            "temperatura": temperatura,
+            "relativna_vlaznost": relativna_vlaznost,
+            "smer_vetra": smer_vetra,
+            "hitrost_vetra": hitrost_vetra,
+            "padavine": padavine,
+            "vsota_padavin": vsota_padavin
+            }
 
     return 
+
