@@ -18,10 +18,12 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    import .models as models
+    from .models import Uporabnik
+
     create_database(app)
 
     return app
+
 
 def create_database(app):
     if not path('website/' + PODATKOVNA_BAZA):

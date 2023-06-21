@@ -10,13 +10,13 @@ class Uporabnik(db.Model, UserMixin):
     ime = db.Column(db.String(40))
     priimek = db.Column(db.String(50))
     geslo = db.Column(db.String(150))
-    izbrane_postaje = db.relationship('IzbranaPostaja') # Uporabimo ime razreda (Z veliko)
+#    izbrane_postaje = db.relationship('IzbranaPostaja') # Uporabimo ime razreda (Z veliko)
 
 
-class VremenskaPostaja(db.Model):
-    pass
+# class VremenskaPostaja(db.Model):
+#     pass
 
-class IzbranaPostaja(db.Model):
+# class IzbranaPostaja(db.Model):
 
-    # Tuji kljuc
-    id_uporabnik = db.Column(db.Integer, db.ForeignKey('uporabnik._id')) # Uporabimo ime razreda (z malo)
+#     # Tuji kljuc
+#     id_uporabnik = db.Column(db.Integer, db.ForeignKey('uporabnik._id')) # Uporabimo ime razreda (z malo)
