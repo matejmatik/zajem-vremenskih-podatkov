@@ -1,6 +1,7 @@
-from website import create_app
+from spletna_aplikacija import ustvari_aplikacijo
+from zajem_podatkov.main import zajem
 
-app = create_app()
+aplikacija = ustvari_aplikacijo()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    aplikacija.run(debug=True)

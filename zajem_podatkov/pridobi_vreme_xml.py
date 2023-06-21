@@ -4,8 +4,8 @@ import pandas as pd
 import requests
 
 
-def zajem_vremenskih_podatkov (url):
-    """Funkcija, ki iz podanega naslova pridobi vremenske podatke.
+def pridobi_vreme_xml (url):
+    """Funkcija, ki iz podanega url naslova pridobi vremenske podatke.
 
     Args:
         url (string): url naslov spletne strani z vremenskimi podatki

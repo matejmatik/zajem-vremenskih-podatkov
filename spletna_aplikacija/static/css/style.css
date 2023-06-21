@@ -55,6 +55,12 @@ li a {
     font-weight: 400;
 }
 
+li a:hover {
+    text-decoration: none;
+    background-color: #424242;;
+    color:#fff
+}
+
 .nav_active {
     background-color: #F15922;
 }
