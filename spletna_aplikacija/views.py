@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from .models import Uporabnik, VremenskaPostaja
+from .models import Uporabnik, VremenskaPostaja, VremenskiPodatki
 from . import pb
 from datetime import datetime
 
@@ -19,14 +19,16 @@ def home():
     izbrane_postaje = []
     for i, zapis in enumerate(podatki):
         izbrane_postaje.append(zapis[0].izbrane_postaje[i].id_vremenska_postaja)
-       
+    
+    #print(izbrane_postaje)   
     
     sql = pb.select(VremenskaPostaja).join(
-        VremenskaPostaja.vremenski_podatki).where(VremenskaPostaja._id.in_(izbrane_postaje))
+        VremenskaPostaja.vremenski_podatki).where((VremenskaPostaja._id.in_(izbrane_postaje))).distinct()
     
     podatki = pb.session.execute(sql).fetchall()
 
     vremenski_podatki = []
+    
     
     for zapis in podatki:
         vremenski_podatki.append({
@@ -40,7 +42,7 @@ def home():
             "hitrost_vetra": zapis[0].vremenski_podatki[-1].hitrost_vetra        
             })
 
-        
+    
         
     #print(vremenski_podatki)
     return render_template("domov.html", 
