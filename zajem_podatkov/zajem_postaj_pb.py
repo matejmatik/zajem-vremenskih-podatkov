@@ -2,9 +2,7 @@ from pridobi_postaje_xml import pridobi_postaje_xml
 from os import path, getcwd
 import sqlite3
 
-PODATKOVNA_BAZA = "vremenski_podatki_ai.db"
-
-def zajem_postaj():
+def zajem_postaj(PODATKOVNA_BAZA):
     """Funkcija, ki shrani postaje in url-je v PB.
     """
 
@@ -26,6 +24,7 @@ def zajem_postaj():
             povezava.commit()
 
     povezava.close()
+    print("Vremenske postaje vstavljene ali posodobljene v PB.")
 
 
 

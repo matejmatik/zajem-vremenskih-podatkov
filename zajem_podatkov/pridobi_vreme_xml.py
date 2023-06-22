@@ -71,5 +71,15 @@ def pridobi_vreme_xml (url):
             "vsota_padavin": vsota_padavin
             }
 
-    return 
+    return {
+            "kraj": None,
+            "datum": None,
+            "cas": None,
+            "temperatura": None,
+            "relativna_vlaznost": None,
+            "smer_vetra": None,
+            "hitrost_vetra": None,
+            "padavine": None,
+            "vsota_padavin": None
+            }
 
