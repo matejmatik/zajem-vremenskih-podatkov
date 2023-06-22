@@ -46,7 +46,9 @@ def zajem_vreme_pb(PODATKOVNA_BAZA):
                 vreme_zapis["vsota_padavin"],
                 _id
                 ])
-            print(f'{ime}, {vreme_zapis["datum"]} {vreme_zapis["cas"]}: {vreme_zapis["temperatura"]}°C')
+            
+            print((f'{ime}, {vreme_zapis["datum"]} {vreme_zapis["cas"]}: '
+                   f'{vreme_zapis["temperatura"]}°C'))
             
             povezava.commit()
     povezava.close()
