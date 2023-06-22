@@ -27,13 +27,7 @@ Junij 2023
 
 Za nalogo sem si zamislil preprosto podatkovno bazo z entitetami `Uporabnik`,  `Vremenska postaja`  in  `Vremenski podatek`. Ideja je, da posameznik oz. `Uporabnik` izbere vremenske postaje, ki jih želi spremljati; v aplikaciji se mu za izbrane vremenske postaje prikazujejo vremenski podatki. V podatkovno bazo se vsako uro shranjujejo podatki vseh vremenskih postaj.
 
-Kot rečeno v podatkovni bazi nastopajo naslednje entitete:
-
-- Entiteta `Uporabnik ` z smiselnimi atributi.
-- Entiteta `Vremenska postaja` z smiselnimi atributi.
-- Entiteta `Vremenski podatek` z smiselnimi atributi.
-
-
+> Podatkovno bazo bi lahko nagradili, da bi imeli več atributov. Za ta ilustrativni primer podatkovne baze sem dodal le nekaj izbranih atributov.
 
 
 
@@ -49,10 +43,42 @@ Kot rečeno v podatkovni bazi nastopajo naslednje entitete:
 
 
 
-## Aplikacija
+## Programska koda
 
-Aplikacija je razdeljena v dva dela: 
+Programska koda je razdeljena v dva dela: 
 
-- …
-- …
+1. programska koda, ki je namenjena zajemanju podatkov (direktorij `zajem_podatkov`)
 
+2. programska koda, ki je namenjena spletni aplikaciji (direktorij `spletna_aplikacija`)
+
+
+
+### Zajemanje podatkov
+
+V direktoriju `zajemanje_podatkov` imamo naslednje datoteke:
+
+- datoteka `pridobi_postaje_xml.py`, ima funkcijo, ki poskrbi, da s spletne strani pridobi vremenske postaje.
+- datoteka `pridobi_vreme_xml.py`, ima funkcijo, ki poskrbi, da za izbrano vremensko postajo, pridobimo podatke o trenutnem vremenu.
+- datoteka `zajem_postaj_pb.py`, ima funkcijo, ki poskrbi, da se vremenske postaje shranijo v podatkovno bazo.
+- datoteka `zajem_vreme_pb.py`, ima funkcijo, ki poskrbi, da se vremenski podatki za določeno vremensko postajo shranijo v podatkovno bazo.
+- datoteka `main.py`, ima funkcijo, ki kliče zgoraj opisane funkcije.
+
+
+
+## Spletna aplikacija
+
+Spletna aplikacija je dostopna na IP-ju: `http://127.0.0.1:5000/`.
+
+Napisana je v programskem jeziku Python z uporabo knjižnic Flask in SQLAlchemy.
+
+Trenutna različica prikazuje registriranemu in prijavljenemu uporabniku vreme za vremenske postaje, ki si jih je izbral za prikaz.
+
+**Prijavno okno:**
+
+<img src="./images/spletna-aplikacija-01.png" alt="spletna-aplikacija-01" style="zoom:50%;" />
+
+
+
+**Prikaz vremenskih podatkov za izbrane kraje:**
+
+<img src="./images/spletna-aplikacija-02.png" alt="spletna-aplikacija-02" style="zoom:50%;" />
