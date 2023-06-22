@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "njpwerner.autodocstring",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "donjayamanne.python-environment-manager",
+        "donjayamanne.python-extension-pack",
+        "kevinrose.vsc-python-indent",
+        "charliermarsh.ruff",
+        "dotjoshjohnson.xml",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "wholroyd.jinja"
+    ]
+}
