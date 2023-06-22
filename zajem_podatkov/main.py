@@ -5,8 +5,6 @@ from zajem_postaj_pb import zajem_postaj
 from zajem_vreme_pb import zajem_vreme_pb
 from time import sleep
 
-PODATKOVNA_BAZA = "vremenski_podatki.db"
-
 def main():
     zajem_postaj()
     
