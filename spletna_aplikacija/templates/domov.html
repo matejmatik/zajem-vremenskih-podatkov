@@ -3,6 +3,37 @@
 {% block domov_aktivna %} class="nav_active" {% endblock %}
 
 {% block telo %}
-<h1>To je domača stran.</h1>
-
+<br>
+<h1>Zadnja vremenska napoved za tvoje izbrane kraje</h1>
+<br><br>
+<div class="vremenske_napovedi">
+    {% for vp in vremenski_podatki %}
+        {% if vp.temperatura is not none %}
+            <div class="vn">
+                <div class="vn_meta">
+                    <div class="vn_kraj"><h3>{{ vp.ime }}</h3></div>
+                    <div class="vn_datum_cas">{{ vp.datum }} ob {{ vp.cas }}</div>
+                </div>
+                <br />
+                <div class="vn_meritev">
+                    <div class="vn_meritev_levo">
+                        <div class="vn_temp">{{ vp.temperatura }}°C</div>
+                    </div>
+                    <div class="vn_meritev_desno">
+                        {% if vp.padavine is not none %}
+                        <div class="vn_padavine">Padavine: {{ vp.padavine }}</div>  
+                        {% endif %}
+                        {% if vp.relativna_vlaznost is not none %}
+                        <div class="vn_vlaga">Vlaga: {{ vp.relativna_vlaznost }}%</div>    
+                        {% endif %}
+                        {% if vp.hitrost_vetra is not none %}
+                        <div class="vn_hitrost_vetra">Hitrost vetra: {{ vp.hitrost_vetra }} km/h</div>    
+                        {% endif %}
+                    </div>
+                </div> 
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<br><br>
 {% endblock %}

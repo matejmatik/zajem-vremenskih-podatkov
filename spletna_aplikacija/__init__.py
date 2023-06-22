@@ -19,7 +19,8 @@ def ustvari_aplikacijo():
     aplikacija.register_blueprint(views, url_prefix='/')
     aplikacija.register_blueprint(auth, url_prefix='/')
 
-    from .models import Uporabnik, VremenskaPostaja, IzbranaPostaja, VremenskiPodatki
+    from .models import Uporabnik, VremenskaPostaja         # noqa: F401
+    from .models import IzbranaPostaja, VremenskiPodatki    # noqa: F401
     ustvari_bazo(aplikacija)
 
     login_manager = LoginManager()
@@ -28,7 +29,7 @@ def ustvari_aplikacijo():
 
     @login_manager.user_loader
     def load_user(_id):
-        return Uporabnik.query.get(int(_id)) # Metoda .get isce pricakuje primarni kljuc 
+        return Uporabnik.query.get(int(_id)) # Metoda .get isce pricakuje primarni kljuc
 
     return aplikacija
 

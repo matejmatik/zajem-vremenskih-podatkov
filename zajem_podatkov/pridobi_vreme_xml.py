@@ -23,7 +23,7 @@ def uredi_podatek (meritev, znacka, tip="float"):
                 return int(podatek)
             elif tip == "str":
                 return podatek
-    return "NULL"     
+    return None   
 
 
 def pridobi_vreme_xml (url):

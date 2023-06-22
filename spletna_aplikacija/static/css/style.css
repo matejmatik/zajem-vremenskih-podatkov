@@ -127,3 +127,39 @@ input {
     background-color: #424242;
     cursor: pointer;
 }
+
+.vremenske_napovedi {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.vn {
+    border: 1px solid #000;
+    padding: 1em;
+    margin: 1em;
+    flex-basis: 30%;
+}
+
+.vn_meritev {
+    display: flex;
+    flex-direction: row;
+}
+
+.vn_meritev_levo, .vn_meritev_desno {
+    padding: 0.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.vn_meritev_levo {
+    margin-right: 1em;
+}
+
+.vn_temp {
+    font-size: 300%;
+    text-align: center;
+}

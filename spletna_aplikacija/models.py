@@ -21,7 +21,8 @@ class VremenskaPostaja(pb.Model):
 
     _id = pb.Column(pb.Integer, primary_key=True, autoincrement=True)
     ime = pb.Column(pb.String(150), unique=True)
-    url = pb.Column(pb.String(1000)) 
+    url = pb.Column(pb.String(1000))
+    vremenski_podatki = pb.relationship('VremenskiPodatki') 
 
     def get_id(self):
         # Metoda za vracanje id-ja.
@@ -31,7 +32,8 @@ class IzbranaPostaja(pb.Model):
     __tablename__ = "izbrana_postaja"
 
     _id = pb.Column(pb.Integer, primary_key=True, autoincrement=True)
-    id_uporabnik = pb.Column(pb.Integer, pb.ForeignKey('uporabnik._id')) 
+    id_uporabnik = pb.Column(pb.Integer, 
+                             pb.ForeignKey('uporabnik._id')) 
     id_vremenska_postaja = pb.Column(pb.Integer, 
                                      pb.ForeignKey('vremenska_postaja._id')) 
     
