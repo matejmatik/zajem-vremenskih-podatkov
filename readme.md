@@ -1,1 +1,3 @@
-# zajem-vremenskih-podatkov
+# Zajem vremenskih podatkov
+Pripravil: Matej Mencin
+
